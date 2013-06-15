@@ -20,6 +20,7 @@ namespace PowerToYou.Service.Tests
         {
             var appliances = _applianceRepository.GetAppliances();
             Assert.IsTrue(appliances.Count() == 27);
+            Assert.That(true, Is.True);
         }
     }
 }
