@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerToYou", "PowerToYou\PowerToYou.csproj", "{A9722623-D616-4734-8546-11C0DAF8B361}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerrToYou.Service", "Service\PowerrToYou.Service.csproj", "{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerToYou.Service.Tests", "PowerToYou.Service.Tests\PowerToYou.Service.Tests.csproj", "{7B42BE74-DC44-4E1F-B33E-5A3C4C4C0C47}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{A9722623-D616-4734-8546-11C0DAF8B361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9722623-D616-4734-8546-11C0DAF8B361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9722623-D616-4734-8546-11C0DAF8B361}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B42BE74-DC44-4E1F-B33E-5A3C4C4C0C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B42BE74-DC44-4E1F-B33E-5A3C4C4C0C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B42BE74-DC44-4E1F-B33E-5A3C4C4C0C47}.Release|Any CPU.ActiveCfg = Release|Any CPU

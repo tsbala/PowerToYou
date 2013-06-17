@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplianceRepositoryTests.cs" />
+    <Compile Include="ApplianceDataProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Service\PowerrToYou.Service.csproj">
-      <Project>{7B954DA2-9B0E-4C02-AED2-802CCB9999F0}</Project>
-      <Name>PowerrToYou.Service</Name>
+    <ProjectReference Include="..\PowerToYou\PowerToYou.csproj">
+      <Project>{A9722623-D616-4734-8546-11C0DAF8B361}</Project>
+      <Name>PowerToYou</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
