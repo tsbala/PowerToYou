@@ -33,24 +33,22 @@ namespace PowerToYou.DataAccess.Consumer
                               LoftInsulation = consumption.Attribute("loftInsulation").Value,
                               WallType = consumption.Attribute("wallType").Value, 
 
-                              GasConsumption = GetGasConsumption(consumption)
-
-
-                              
+                              GasConsumption = GetConsumption<GasConsumption>(consumption),
+                              ElecricityConsumption = GetConsumption<ElectricityConsumption>(consumption)
 
                           });
         }
 
-        private static GasConsumption GetGasConsumption(XElement consumption)
+        private static T GetConsumption<T>(XElement consumptionData) where T : List<MontlyConsumption>, new()
         {
-            var gasConsumption = new GasConsumption();
-            foreach (var attribute in consumption.Descendants("gasConsumption").Attributes())
-            {
-                gasConsumption.Add(new MontlyConsumption(attribute.Name.ToString(), Convert.ToDecimal(attribute.Value)));
-               
-            }
+            var consumption = new T();
 
-            return gasConsumption; 
+            var decendantName = typeof(GasConsumption).IsAssignableFrom(typeof(T)) ? "gasConsumption" : "elecConsumption";
+
+            foreach (var attribute in consumptionData.Descendants(decendantName).Attributes())
+                consumption.Add(new MontlyConsumption(attribute.Name.ToString(), Convert.ToDecimal(attribute.Value)));
+            
+            return consumption; 
         }
     }
 

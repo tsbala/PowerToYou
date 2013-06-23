@@ -15,7 +15,12 @@ namespace PowerToYou.Service.Tests
             Assert.That(response.Count(), Is.GreaterThan(1));
 
             Assert.That(response.FirstOrDefault().GasConsumption.For("jan").Consumption, Is.EqualTo(3929.136000));
+            Assert.That(response.FirstOrDefault().GasConsumption.For("dec").Consumption, Is.EqualTo(3615.944000));
+
+            Assert.That(response.FirstOrDefault().ElecricityConsumption.For("jan").Consumption, Is.EqualTo(462.584000));
+            Assert.That(response.FirstOrDefault().ElecricityConsumption.For("dec").Consumption, Is.EqualTo(471.312000));
         }
+
 
     }
 }
