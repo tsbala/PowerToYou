@@ -1,4 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Linq;
 using NUnit.Framework;
 using PowerToYou.DataAccess.Consumer;
 
@@ -24,7 +29,7 @@ namespace PowerToYou.Service.Tests
         [Test]
         public void WhenSearchingConsumerDataProvider_IGetTheExpectedResultsBack()
         {
-            var data = ConsumerDataProvider.GetData(); 
+            var data = ConsumerDataProvider.GetData();
             Assert.That(data.Count(x => x.CurrentSupplier == "Best Energy"), Is.EqualTo(7));
             Assert.That(data.Count(x => x.CurrentSupplier == "Energise"), Is.EqualTo(24));
 
@@ -32,6 +37,38 @@ namespace PowerToYou.Service.Tests
             Assert.That(data.Count(x => x.AreaCode == "16"), Is.EqualTo(13));
 
             Assert.That(data.Count(x => x.LoftInsulation == "Loft Insulation Between 50 and 150mm"), Is.EqualTo(41));
+        }
+    }
+
+   [TestFixture]
+    public class ConsumptionDataExtenionsTest
+    {
+       [Test]
+        public void CanApplyQueryToData()
+        {
+            var data = ConsumerDataProvider.GetData();
+            var results = data.ApplyFilters(new List<Func<ConsumptionData, bool>>()
+                    {
+                        x => x.CurrentSupplier == "Best Energy",
+                        x => x.Tariff  == 1
+                    });
+
+            Assert.That(results.Count(), Is.EqualTo(7));
+        }
+    }
+
+    public static class ConsumptionDataExtensions
+    {
+        public static IEnumerable<ConsumptionData> ApplyFilters(this IEnumerable<ConsumptionData> consumption,
+                                                                IEnumerable<Func<ConsumptionData, bool>> predicates)
+        {
+            IEnumerable<ConsumptionData> results = consumption;
+            foreach (var predicate in predicates)
+            {
+                results = results.Where(predicate);
+            }
+
+            return results;
         }
     }
 }
