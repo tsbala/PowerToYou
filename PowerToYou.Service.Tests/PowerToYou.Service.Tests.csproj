@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ApplianceDataProviderTests.cs" />
     <Compile Include="ConsumerDataProviderTests.cs" />
+    <Compile Include="ConsumptionDataExtentionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
